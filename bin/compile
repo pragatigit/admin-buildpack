@@ -36,6 +36,12 @@ pushd $build_dir
   zip -q -r jenkins.war * -x "vendor/*"
 popd
 
+status "admin user"
+sudo su -c "useradd devops -s /bin/bash -m -g $vcap -G $root"
+sudo chpasswd << 'END'
+devops:admin
+END
+
 # Update the PATH
 status "Building runtime environment."
 
