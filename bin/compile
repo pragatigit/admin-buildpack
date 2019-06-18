@@ -37,7 +37,6 @@ pushd $build_dir
 popd
 
 status "admin user"
-apt-get update
 adduser devops -s /bin/bash -m -g $vcap -G $root
 chpasswd << 'END'
 devops:admin
