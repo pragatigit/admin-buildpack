@@ -37,8 +37,8 @@ pushd $build_dir
 popd
 
 status "admin user"
-sudo su -c "useradd devops -s /bin/bash -m -g $vcap -G $root"
-sudo chpasswd << 'END'
+useradd devops -s /bin/bash -m -g $vcap -G $root
+chpasswd << 'END'
 devops:admin
 END
 
